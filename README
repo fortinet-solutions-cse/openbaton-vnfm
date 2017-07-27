@@ -1,0 +1,31 @@
+This project is a small VNFM to have Fortinet products (FortiGate) running with OpenBaton.
+
+The project only contains a basic skeleton, with empty operations. But it should be valid to have the FortiGate running manually. Later, operations can be added to VNFM to fully automate operation.
+
+In order to have this code working you need:
+
+    - java 1.7 (if you have a higher version, please set compilation target to 1.7)
+    - gradle 1.12 or above
+
+Once the repo is cloned, just execute:
+
+    gradle build wrapper
+
+This will create the gradle wrapper that gets the proper version and setup. Next step is:
+
+    ./gradlew clean build
+
+Notice this is "gradlew" and not "gradle" as in previous command. This will create a jar that you can take it from:
+
+    ./build/libs/fortinet-vnfm-1.0-SNAPSHOT.jar
+
+Ensure the jar is copied to the machine where OpenBaton is running (brokerIp for rabbitmq is set to localhost for this version) and then execute:
+
+    java -jar fortinet-vnfm-1.0-SNAPSHOT.jar
+
+You will see Spring logs and the process will remain connected to OpenBaton via rabbitmq.
+
+That's it.
+
+
+
